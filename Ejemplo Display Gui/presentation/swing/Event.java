@@ -6,7 +6,8 @@ import logic.Text;
 public class Event implements ActionListener{
 	
 	public static final String LETTER_TEXT = "letter text";
-	public static final String SEND_LETTER = "send letter"; 
+	public static final String SEND_LETTER = "send letter";
+	public static final String MOVE = "move"; 
 	
 	private WindowText windowText;
 	
@@ -21,6 +22,9 @@ public class Event implements ActionListener{
 		}
 		if (action.getActionCommand().equals(this.SEND_LETTER)) {
 			windowText.countA();
+		}
+		if (action.getActionCommand().equals(this.MOVE)) {
+			windowText.move();
 		}
 	}
 }

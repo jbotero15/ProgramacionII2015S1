@@ -15,6 +15,7 @@ public class PanelText extends JPanel{
 	private JLabel labelText ;
 	private JTextField textText;
 	private JButton buttonLetter;
+	private JButton buttonMove;
 	private Event event;
 	
 	public PanelText(Event event){
@@ -28,6 +29,10 @@ public class PanelText extends JPanel{
 		this.buttonLetter.addActionListener(event);
 		this.buttonLetter.setActionCommand(Event.LETTER_TEXT);
 		this.add(buttonLetter);
+		this.buttonMove = new JButton("Mover");
+		this.buttonMove.addActionListener(event);
+		this.buttonMove.setActionCommand(Event.MOVE);
+		this.add(buttonMove);
 	}
 
 	public JTextField getTextText() {

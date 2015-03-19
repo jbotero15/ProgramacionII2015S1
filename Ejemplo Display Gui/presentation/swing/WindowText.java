@@ -43,7 +43,12 @@ public class WindowText extends JFrame{
 		this.panelArea.getPanelLetter().getTextXY().setText(textTemp);
 		this.panelArea.getPanelLetter().getTextXY().setMaxX(panelArea.getPanelLetter().getWidth());
 		this.panelArea.getPanelLetter().getTextXY().setMaxY(panelArea.getPanelLetter().getHeight());
-		this.panelArea.getPanelLetter().getTextXY().generate();		
+		this.panelArea.getPanelLetter().getTextXY().generate();	
+		this.panelArea.getPanelLetter().fillArrayLabel();		
+	}
+	
+	public void move(){
+		this.panelArea.getPanelLetter().move();
 	}
 }
 

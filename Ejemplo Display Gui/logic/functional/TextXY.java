@@ -29,6 +29,12 @@ public class TextXY {
 		}
 	}
 	
+	public void move(){
+		for (int i = 0; i < array.length; i++) {
+			array[i].move();
+		}
+	}
+	
 	public LetterXY[] getArray() {
 		return array;
 	}
