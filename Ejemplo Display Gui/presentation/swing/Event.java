@@ -24,7 +24,8 @@ public class Event implements ActionListener{
 			windowText.countA();
 		}
 		if (action.getActionCommand().equals(this.MOVE)) {
-			windowText.move();
+			//windowText.move();
+			windowText.startAnimation();
 		}
 	}
 }

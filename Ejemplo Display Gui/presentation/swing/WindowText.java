@@ -50,6 +50,10 @@ public class WindowText extends JFrame{
 	public void move(){
 		this.panelArea.getPanelLetter().move();
 	}
+
+	public void startAnimation(){
+		this.panelArea.getPanelLetter().startAnimation();
+	}
 }
 
 

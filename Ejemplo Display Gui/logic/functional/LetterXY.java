@@ -1,6 +1,6 @@
 package functional;
 
-public class LetterXY {
+public class LetterXY implements Runnable{
 	public static final int DEFAULT_LIMIT = 50;
 	public static final byte UP_RIGHT = 1; 
 	public static final byte DOWN_RIGHT = 2;
@@ -84,6 +84,18 @@ public class LetterXY {
 		if (y > limitY){
 			y = limitY;
 			orientation = UP_LEFT;
+		}
+	}
+	
+	@Override
+	public void run(){
+		while (true) {			
+			try {
+				Thread.sleep(200);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			move();			
 		}
 	}
 	
