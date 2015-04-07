@@ -5,7 +5,9 @@ public class LetterXY implements Runnable{
 	public static final byte UP_RIGHT = 1; 
 	public static final byte DOWN_RIGHT = 2;
 	public static final byte UP_LEFT = 3;
-	public static final byte DOWN_LEFT = 4;
+	public static final byte DOWN_LEFT = 4;		
+	public static final byte STOP = 0;
+	public static final byte MOVE = 1;
 	
 	public static int limitX;
 	public static int limitY;
@@ -14,6 +16,9 @@ public class LetterXY implements Runnable{
 	private int x;
 	private int y;	
 	private byte orientation;
+	private int xTarget;
+	private int yTarget;
+	private byte state;
 	
 	
 	public LetterXY(char letter, int x, int y) {
@@ -24,6 +29,9 @@ public class LetterXY implements Runnable{
 		this.orientation = UP_RIGHT;
 		this.limitX = DEFAULT_LIMIT;
 		this.limitY = DEFAULT_LIMIT;
+		this.xTarget = DEFAULT_LIMIT;
+		this.yTarget = DEFAULT_LIMIT;
+		this.state = MOVE; 
 	}
 	
 	public void move(){
@@ -89,13 +97,17 @@ public class LetterXY implements Runnable{
 	
 	@Override
 	public void run(){
-		while (true) {			
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		while (true) {
+			if (state == MOVE) {
+				try {
+					Thread.sleep(50);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				if (x == xTarget) 
+					state = STOP;
+				move();
 			}
-			move();			
 		}
 	}
 	
